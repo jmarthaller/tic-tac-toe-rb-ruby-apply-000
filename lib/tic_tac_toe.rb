@@ -106,7 +106,7 @@ end
 
 
 def won?(board)
-  WIN_COMBINATIONS.each { |possible_wins|
+  WIN_COMBINATIONS.each do |possible_wins|
     win_index0 = possible_wins[0]
     win_index1 = possible_wins[1]
     win_index2 = possible_wins[2]
@@ -119,7 +119,8 @@ def won?(board)
       return possible_wins
     elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
      return possible_wins 
-    end }
+    end 
+  end
   return nil
 end
 
@@ -170,7 +171,7 @@ def play(board)
   while over?(board) == false
     turn(board)
   end
-  if won?(board)
+  if won?(board) 
     puts "Congratulations #{winner(board)}!"
   elsif draw?(board)
     puts "Cat's Game!"
